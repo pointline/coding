@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise 封装 ｜ 8 - 指定多个回调</title>
+  <script src="./promise.js"></script>
+</head>
+<body>
+  <script>
+    let p = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('OK')
+        // reject('Error')
+        // 抛出异常
+        // throw 'error'
+      }, 1000)
+    })
+    console.log("🚀 ~ file: index.html:20 ~ p ~ p:", p)
+
+    p.then((value) => {
+      console.log(value)
+    }, reason => {
+      console.warn(reason)
+    })
+
+    p.then((value) => {
+      alert(value)
+    }, reason => {
+      alert(reason)
+    })
+  </script>
+</body>
+</html>
