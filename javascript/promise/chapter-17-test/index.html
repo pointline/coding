@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise Test</title>
+  <script src="./promise.js"></script>
+</head>
+<body>
+  <script>
+    // const p1 = new Promise((resolve, reject) => {
+    //   // resolve('OK')
+    //   reject('Error')
+    //   // throw 'Fail'
+
+    //   // setTimeout(() => {
+    //   //   resolve('OK')
+    //   // }, 1000)
+    // })
+    // console.log("🚀 ~ file: index.html:15 ~ p1 ~ p1:", p1)
+
+    // const result = p1.then(value => {
+    //   console.log('1=' + value)
+    // }, reason => {
+    //   console.warn(reason)
+    // })
+    // console.log("🚀 ~ file: index.html:27 ~ result ~ result:", result)
+
+    // p1.then(value => {
+    //   console.log('2=' + value)
+    // }).catch((reason) => {
+    //   console.warn(reason)
+    // })
+
+    // promise resolve
+    // const p2 = Promise.resolve('1')
+    // const p2 = Promise.resolve(p1)
+    // console.log("🚀 ~ file: index.html:37 ~ p2:", p2)
+
+    // promise reject
+    // const promiseReject = Promise.reject('Error')
+    // console.log(promiseReject)
+
+    // promise all
+    // const pa1 = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve('OK')
+    //   }, 1000)
+    // })
+    // const pa2 = Promise.resolve('success')
+    // const pa3 = Promise.reject('Error')
+    // const promiseAll = Promise.all([pa1, pa2])
+    // console.log(promiseAll)
+
+    // promise race
+    // const pa1 = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve('OK')
+    //   }, 1000)
+    // })
+    // const pa2 = Promise.resolve('success')
+    // const pa3 = Promise.reject('Error')
+    // const promiseRace = Promise.race([pa1, pa3, pa2])
+    // console.log(promiseRace)
+
+    // async callback
+    // const asyncCallback = new Promise((resolve, reject) => {
+    //   console.log('start')
+    //   setTimeout(() => {
+    //     resolve('OK')
+    //   }, 1000)
+    //   console.log('process')
+    // })
+    // asyncCallback.then((value) => {
+    //   console.log(`value = ${value}`)
+    // }, (reason) => {
+    //   console.warn(reason);
+    // })
+    // console.log('end')
+  </script>
+</body>
+</html>

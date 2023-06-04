@@ -37,7 +37,7 @@ function Promise (executor) {
     self.PromiseResult = reason
     // 调用失败的回调函数
     if (self.callback.onRejected) {
-      self.callback.onResolved(reason)
+      self.callback.onRejected(reason)
     }
   }
 
