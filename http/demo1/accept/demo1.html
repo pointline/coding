@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo1</title>
+</head>
+<body>
+  <!-- <form action="/form" method="POST" enctype="application/x-www-form-urlencoded">
+    <input type="text" name="name">
+    <input type="password" name="password">
+    <input type="submit">
+  </form> -->
+
+  <form action="/form" id="form" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name">
+    <input type="password" name="password">
+    <input type="file" name="file">
+    <input type="submit">
+  </form>
+  <script>
+    var form = document.getElementById('form')
+    form.addEventListener('submit', function(e) {
+      e.preventDefault()
+      var formData= new FormData(form); // 当上传file文件时，传统multipart/form-data方式，在playload中并不会显示，因为文件需要二进制上传，所以可以通过javascript form data的方式上传
+      fetch('/form', {
+        method: 'POST',
+        body: formData
+      })
+    }, false)
+  </script>
+</body>
+</html>
