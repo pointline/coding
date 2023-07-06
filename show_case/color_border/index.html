@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color border</title>
+  <style>
+    :root {
+      --x: 0px;
+      --y: 0px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgb(3, 7, 18);
+      font-size: 12px;
+      color: #fff;
+    }
+
+    .title {
+      font-size: 32px;
+      padding: 2rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .link {
+      margin: 0 auto;
+      font-size: 26px;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      width: 1000px;
+      margin: 200px auto;
+    }
+
+    .item {
+      flex: 0 1 480px;
+      background: rgb(37, 49, 66);
+      padding: 2em;
+      height: 480px;
+      font-size: 32px;
+    }
+
+    .item:hover {
+      background: rgb(38, 50, 68);
+    }
+
+    .box-inset {
+      position: relative;
+    }
+
+    .box-inset::before {
+      position: absolute;
+      content: '';
+      z-index: -2;
+      will-change: background;
+      user-select: none;
+      pointer-events: none;
+      contain: size;
+      border-radius: 6px;
+      background: radial-gradient(300px circle at var(--x) var(--y), #c33764 0, #6171fe 80%, transparent 100%);
+      bottom: -2px;
+      height: calc(100% + 4px);
+      left: -2px;
+      right: -2px;
+      top: -2px;
+      width: calc(100% + 4px);
+    }
+
+    .cover {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      background: rgb(31, 41, 55);
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="title center">Color border</h1>
+  <div class="center"><a class="link" href="https://tailscan.com/">from: https://tailscan.com/</a></div>
+  <div class="container">
+    <div class="box-inset item item_1">
+      <span class="cover"></span>
+      <span>1</span>
+    </div>
+    <div class="box-inset item item_2">
+      <span class="cover"></span>
+      <span>2</span>
+    </div>
+    <div class="box-inset item item_3">
+      <span class="cover"></span>
+      <span>3</span>
+    </div>
+    <div class="box-inset item item_4">
+      <span class="cover"></span>
+      <span>4</span>
+    </div>
+    <div class="box-inset item item_5">
+      <span class="cover"></span>
+      <span>5</span>
+    </div>
+    <div class="box-inset item item_6">
+      <span class="cover"></span>
+      <span>6</span>
+    </div>
+    <div class="box-inset item item_7">
+      <span class="cover"></span>
+      <span>7</span>
+    </div>
+    <div class="box-inset item item_8">
+      <span class="cover"></span>
+      <span>8</span>
+    </div>
+    <div class="box-inset item item_9">
+      <span class="cover"></span>
+      <span>9</span>
+    </div>
+    <div class="box-inset item item_10">
+      <span class="cover"></span>
+      <span>10</span>
+    </div>
+  </div>
+
+  <script>
+    const boxInsetItems = document.querySelectorAll('.box-inset');
+    window.addEventListener('mousemove', function (e) {
+      boxInsetItems.forEach(function (item) {
+        console.log(e)
+        let x = e.clientX - item.getBoundingClientRect().x
+        let y = e.clientY - item.getBoundingClientRect().y
+        item.style.setProperty('--x', x + 'px')
+        item.style.setProperty('--y', y + 'px')
+      })
+    })
+  </script>
+</body>
+
+</html>
