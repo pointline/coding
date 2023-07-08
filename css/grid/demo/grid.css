@@ -1,0 +1,73 @@
+.main {
+  display: grid;
+  /* width: 600px; */
+  /* height: 600px; */
+  border: 10px solid skyblue;
+  /* 定义3列，每列100px */
+  /* grid-template-columns: 100px 100px 100px; */
+  grid-template-columns: repeat(3, 100px);
+  /* 平均分成3份 */
+  /* grid-template-columns: report(3, 1fr); */
+  /* 平均分成3份 */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* grid-template-columns: 1fr minmax(150px, 1fr); */
+  /* 如果不定义行，那么每个item的高度就会平分容器的高度 */
+  /* 定义4行 */
+  /* grid-template-rows: 100px 100px 100px 100px; */
+  grid-template-rows: repeat(4, 100px);
+  /* gap */
+  /* row-gap: 20px; */
+  /* column-gap: 20px; */
+  gap: 20px;
+  grid-template-areas: 'a b c' 'd e f' 'g h i';
+  /* grid-auto-flow: column; */
+  /* grid-auto-flow: row dense; */
+}
+
+.item {
+  font-size: 50px;
+  background: #E91E63;
+  color: #fff;
+}
+
+.item-1 {
+  background-color: #db1212;
+  /* grid-column: 1 / 3; */
+}
+
+.item-2 {
+  background-color: #81cd18;
+  /* grid-column: 1 / 3; */
+}
+
+.item-3 {
+  background-color: #11c89a;
+}
+
+.item-4 {
+  background-color: #0f44cc;
+}
+
+.item-5 {
+  background-color: #a11197;
+}
+
+.item-6 {
+  background-color: #711643;
+}
+
+.item-7 {
+  background-color: #b51a1a;
+}
+
+.item-8 {
+  background-color: #e1e43e;
+}
+
+.item-9 {
+  background-color: #00ff2a;
+}
+
+.item-10 {
+  background-color: #066c94;
+}
