@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>双飞翼布局</title>
+  <style>
+    div {
+      text-align: center;
+    }
+
+    #main {
+      background-color: #ddd;
+      width: 100%;
+    }
+
+    #main #main-wrapper {
+      margin-left: 100px;
+      margin-right: 50px;
+    }
+
+    #left {
+      background-color: orange;
+      width: 100px;
+      margin-left: -100%;
+    }
+
+    #right {
+      background-color: green;
+      width: 50px;
+      margin-left: -50px;
+    }
+
+    .column {
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>双飞翼布局</h1>
+  <!-- https://www.bilibili.com/video/BV1Ap4y1p7jm -->
+  <dl>
+    <dt>目的</dt>
+    <dd>两侧内容宽度固定，中间内容宽度自适应</dd>
+    <dd>三栏布局，中间一栏最先加载，渲染出来（主要内容）</dd>
+  </dl>
+
+  <div id="main" class="column">
+    <div id="main-wrapper">Main</div>
+  </div>
+  <div id="left" class="column">Left</div>
+  <div id="right" class="column">Right</div>
+</body>
+</html>

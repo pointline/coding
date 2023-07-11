@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圣杯布局</title>
+  <style>
+    body {
+      min-width: 500px;
+    }
+
+    div {
+      text-align: center;
+    }
+
+    #header {
+      background-color: #f1f1f1;
+    }
+
+    #content {
+      padding-left: 300px;
+      padding-right: 200px;
+    }
+
+    #content #center {
+      background-color: #ddd;
+      width: 100%;
+    }
+
+    #content .column {
+      float: left;
+    }
+
+    #content #left {
+      position: relative;
+      background-color: orange;
+      width: 300px;
+      margin-left: -100%;
+      right: 300px;
+    }
+
+    #content #right {
+      background-color: green;
+      width: 200px;
+      margin-right: -200px;
+    }
+
+    #footer {
+      clear: both;
+      background: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <h1>圣杯布局</h1>
+  <!-- https://www.bilibili.com/video/BV1dA411u7g8 -->
+  <dl>
+    <dt>目的</dt>
+    <dd>两侧内容宽度固定，中间内容宽度自适应</dd>
+    <dd>三栏布局，中间一栏最先加载，渲染出来（主要内容）</dd>
+  </dl>
+
+  <div id="header">Header</div>
+  <div id="content">
+    <div id="center" class="column">Center</div>
+    <div id="left" class="column">Left</div>
+    <div id="right" class="column">Right</div>
+  </div>
+  <div id="footer">Footer</div>
+</body>
+</html>
