@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Animation</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .product-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .item {
+      background: #abcdef;
+      padding: 20px;
+      margin: 10px;
+      text-align: right;
+    }
+
+    .item + .item {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .item span,
+    .cart-icon {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      background-color: aquamarine;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    .cart-icon {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      background: none;
+      transition: all 0.5s linear; /* 外层元素匀速运动 */
+    }
+
+    .cart-icon i {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: yellow;
+      border-radius: 50%;
+      transition: all 0.5s cubic-bezier(0.5, -0.5, 1, 1); /* cubic-bezier(0.5, -0.5, 1, 1) 抛物线运动 */
+    }
+
+
+    .cart {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 100;
+      background-color: gray;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border-radius: 50%;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="product-list" id="product-list">
+      <li class="item"><span class="item-cart">商品1</span></li>
+      <li class="item"><span class="item-cart">商品2</span></li>
+      <li class="item"><span class="item-cart">商品3</span></li>
+    </ul>
+  </div>
+
+  <div class="cart">Cart</div>
+
+  <!-- <div class="cart-icon">
+    <i class=""></i>
+  </div> -->
+
+  <script>
+    // 动画总的思想是，设置cart-icon元素本身X轴移动，其子元素Y轴移动，来实现动画
+
+    // 获取cart元素的rect
+    var cartRect = document.querySelector('.cart').getBoundingClientRect()
+
+    document.querySelector('#product-list').addEventListener('click', function(e) {
+      const target = e.target
+
+      if (target.classList.contains('item-cart')) {
+        // 获取点击元素Rect
+        const targetRect = target.getBoundingClientRect();
+
+        // 创建cart icon元素
+        const cartIconBox = document.createElement('div')
+        cartIconBox.classList.add('cart-icon')
+        const carIconInsideBox = document.createElement('i')
+
+        // 设置cart icon元素的X
+        cartIconBox.style.transform = `translateX(${targetRect.left}px)`;
+        // 设置cart icon i元素的Y
+        carIconInsideBox.style.transform = `translateY(${targetRect.top}px)`;
+        cartIconBox.appendChild(carIconInsideBox)
+        document.body.appendChild(cartIconBox)
+
+        // 这里让浏览器强制执行一次渲染
+        cartIconBox.clientWidth
+
+        // 设置cart icon元素的X
+        cartIconBox.style.transform = `translateX(${cartRect.left}px)`;
+        // 设置cart icon i元素的Y
+        carIconInsideBox.style.transform = `translateY(${cartRect.top}px)`;
+
+        cartIconBox.addEventListener('transitionend', function() {
+          cartIconBox.remove() // 动画结束后删除DOM
+        })
+      }
+    })
+  </script>
+</body>
+</html>
