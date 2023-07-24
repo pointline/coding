@@ -1,4 +1,4 @@
-(function() {
+(function () {
   // 定义歌词每行的高度
   const lrcRowHeight = 40;
 
@@ -11,8 +11,8 @@
 
   /**
    * 解析歌词
-   * @param {String} lrcStr 
-   * @returns 
+   * @param {String} lrcStr
+   * @returns
    */
   function parseLrc(lrcStr) {
     const splitArr = lrcStr.split('\n')
@@ -35,8 +35,8 @@
 
   /**
    * 格式化事件
-   * @param {String} timeStr 
-   * @returns 
+   * @param {String} timeStr
+   * @returns
    */
   function parseTime(timeStr) {
     const timeSplit = timeStr.split(':')
@@ -46,9 +46,9 @@
 
   /**
    * 渲染歌词
-   * @param {Array} lrcArr 
+   * @param {Array} lrcArr
    */
-  function renderLrc (lrcArr) {
+  function renderLrc(lrcArr) {
     const fragment = document.createDocumentFragment();
     for (let index = 0; index < lrcArr.length; index++) {
       const lrcItem = lrcArr[index];
@@ -62,8 +62,8 @@
 
   /**
    * 根据audio播放时间寻找到当前对应歌词
-   * @param {Array} lrcArr 
-   * @returns 
+   * @param {Array} lrcArr
+   * @returns
    */
   function findIndexByLrc(lrcArr) {
     const currentTime = doms.audio.currentTime;
