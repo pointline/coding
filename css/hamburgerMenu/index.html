@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamburger menu</title>
+  <style>
+    body {
+      text-align: center;
+      margin: 10%;
+    }
+
+    summary {
+      display: inline-block;
+      cursor: pointer;
+      list-style: none;
+      height: 30px;
+      background-color: orange;
+      position: relative;
+    }
+
+    summary span {
+      display: block;
+      width: 40px;
+      height: 6px;
+      background: #333;
+      position: absolute;
+      transition: all 0.25s ease;
+      border-radius: 5px;
+    }
+
+    summary span:nth-child(2) {
+      top: calc(50% - 3px);
+    }
+
+    summary span:last-child{
+      bottom: 0;
+    }
+
+    details[open] summary span:nth-child(2) {
+      display: none;
+    }
+
+    details[open] summary span:first-child {
+      top: calc(50% - 3px);
+      transform: rotate(45deg);
+      transform-origin: center;
+    }
+
+    details[open] summary span:last-child {
+      top: calc(50% - 3px);
+      transform: rotate(-45deg);
+      transform-origin: center;
+    }
+  </style>
+</head>
+<body>
+  <details>
+    <summary>
+      <span></span>
+      <span></span>
+      <span></span>
+    </summary>
+  </details>
+</body>
+</html>
