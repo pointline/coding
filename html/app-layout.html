@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: grid;
+      grid-template-columns: 80px 400px 1fr 250px;
+      grid-template-rows: 80px 1fr;
+      color: #fff;
+      font-family: sans-serif;
+      font-size: 22px;
+      line-height: 1;
+      text-align: center;
+      background-image: linear-gradient(to top,rgba(44, 44, 44, 0.2), rgba(44, 44, 44, 0.2)), url(http://cdn.xulukun.cn/dingdangmao.jpg);
+      background-size: cover;
+    }
+
+    nav {
+      background: #495057;
+      grid-row: 1 / -1;
+    }
+
+    menu {
+      background: #845ef7;
+      grid-column: 2 / -1;
+
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    button {
+      background-color: #7048e8;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      line-height: 1;
+      padding: 6px 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    menu button:last-child {
+      /* 这里是使用技巧，会自动吸收左侧多余的空间 */
+      margin-left: auto;
+      background-color: #e03131;
+    }
+
+    aside {
+      background-color: rgba(233, 236, 239, 0.6);
+    }
+
+    main,
+    aside {
+      color: #000;
+    }
+
+    nav,
+    aside,
+    main {
+      padding-top: 20px;
+    }
+
+    .email-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      overflow: scroll;
+    }
+
+    .email-container .email {
+      background: #adb5bd;
+      font-weight: bold;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>Nav</nav>
+  <menu>
+    <button>New</button>
+    <button>Replay</button>
+    <button>Forwards</button>
+    <button>Mark unread</button>
+    <button>Trash</button>
+  </menu>
+  <aside class="email-container">
+    <div class="email">Email1</div>
+    <div class="email">Email2</div>
+    <div class="email">Email3</div>
+    <div class="email">Email4</div>
+    <div class="email">Email5</div>
+    <div class="email">Email6</div>
+    <div class="email">Email7</div>
+    <div class="email">Email8</div>
+    <div class="email">Email9</div>
+    <div class="email">Email10</div>
+  </aside>
+  <main>Email View</main>
+  <aside>
+    Additional info
+  </aside>
+</body>
+</html>
