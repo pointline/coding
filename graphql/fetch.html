@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const query = `query GetPosts {
+      posts {
+        userId
+        id
+        title
+        body
+      }
+    }`
+
+    // Demo：请求GraphQL数据
+    fetch('https://jsonplaceholder.ir/graphql', {
+      method: 'POST',
+      mode: "cors",
+      referrerPolicy: "no-referrer",
+      credentials: "same-origin",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        query,
+        variables: {}
+      })
+    }).then(res => res.json()).then(data => console.log(data)).catch(error => console.error(error))
+  </script>
+</body>
+</html>
